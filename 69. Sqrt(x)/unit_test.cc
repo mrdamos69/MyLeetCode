@@ -11,7 +11,6 @@ TEST(Test_69, test_2) {
     ASSERT_EQ(test.mySqrt(8), 2);
 }
 
-
 int main(int argc, char *argv[]) {
   testing::InitGoogleTest(&argc, argv);
   return RUN_ALL_TESTS();
