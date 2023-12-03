@@ -36,6 +36,11 @@ TEST(Test_67, test_7) {
     ASSERT_EQ(test.addBinary("101111", "10"), "110001");
 }
 
+TEST(Test_67, test_8) {
+    Solution test;
+    ASSERT_EQ(test.addBinary("101", "111"), "1100");
+}
+
 int main(int argc, char *argv[]) {
   testing::InitGoogleTest(&argc, argv);
   return RUN_ALL_TESTS();

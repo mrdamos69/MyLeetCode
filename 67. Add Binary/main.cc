@@ -16,7 +16,7 @@ public:
             for (int i = 0; i < allSize; i++)
                 a = "0" + a;
         }
-        std::cout << a << "   " << b << std::endl;
+        // std::cout << a << "   " << b << std::endl;
 
         for (int i = (a.size() - 1) ; i >= 0; i--) {
             if(mem && a[i] < b[i]) {
@@ -29,10 +29,11 @@ public:
             if(a[i] < b[i] || a[i] > b[i]) {
                 result = "1" + result;
             } else if(a[i] == '1' && a[i] == b[i]) {
-                result = "0" + result;
+                result = mem ? "1" + result : "0" + result;
                 mem = true;
             } else if(mem && (a[i] == '0' && a[i] == b[i])){
                 result = "1" + result;
+                mem = false;
             } else {
                 result = "0" + result;
             }
