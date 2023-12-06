@@ -3,7 +3,12 @@
 
 TEST(Test_70, test_1) {
     Solution test;
-    ASSERT_EQ(test.mySqrt(4), 2);
+    ASSERT_EQ(test.climbStairs(3), 3);
+}
+
+TEST(Test_70, test_2) {
+    Solution test;
+    ASSERT_EQ(test.climbStairs(5), 8);
 }
 
 int main(int argc, char *argv[]) {
