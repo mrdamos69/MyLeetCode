@@ -3,21 +3,29 @@
 
 TEST(Test_141, test_1) {
     Solution test;
-    ListNode* node = new ListNode(1);
-    node->next = new ListNode(2);
+    ListNode* node = new ListNode(-21);
+    std::vector<int> vec {1, 2, 3};
+    ListNode* temp = node;
+    for(size_t i = 1; i < vec.size(); i++) {
+      temp->next = new ListNode(vec[i]);
+      temp = temp->next;
+    }
     node->next->next = node;
     ASSERT_EQ(test.hasCycle(node), true);
-    delete node->next;
-    delete node;
+    node->delList(node);
 }
 
 TEST(Test_141, test_2) {
     Solution test;
     ListNode* node = new ListNode(1);
-    node->next = new ListNode(2);
+    std::vector<int> vec {1, 2};
+    ListNode* temp = node;
+    for(size_t i = 1; i < vec.size(); i++) {
+      temp->next = new ListNode(vec[i]);
+      temp = temp->next;
+    }
     ASSERT_EQ(test.hasCycle(node), false);
-    delete node->next;
-    delete node;
+    node->delList(node);
 }
 
 TEST(Test_141, test_3) {
@@ -31,19 +39,38 @@ TEST(Test_141, test_3) {
       temp = temp->next;
     }
     ASSERT_EQ(test.hasCycle(node), false);
+    node->delList(node);
 }
 
 TEST(Test_141, test_4) {
     Solution test;
-    ListNode* node = new ListNode(-21);
+    ListNode* node = new ListNode(1);
     std::vector<int> vec {1, 2, 3};
     ListNode* temp = node;
-
     for(size_t i = 1; i < vec.size(); i++) {
       temp->next = new ListNode(vec[i]);
       temp = temp->next;
     }
     ASSERT_EQ(test.hasCycle(node), false);
+    node->delList(node);
+}
+
+TEST(Test_141, test_5) {
+    Solution test;
+    ListNode* node = new ListNode(1);
+    ASSERT_EQ(test.hasCycle(node), false);
+    node->delList(node);
+}
+
+void ListNode::delList(ListNode *node) {
+  if(node != NULL) {
+    ListNode *delNode = NULL;
+    while (node->next != NULL) {
+      delNode = node;
+      node = node->next;
+      delete delNode;
+    }
+  }
 }
 
 int main(int argc, char *argv[]) {
