@@ -8,25 +8,6 @@
      void delList(ListNode *node);
 };
 
-// class Solution {
-// public:
-//     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
-//         if(headA != NULL || headB != NULL) {
-//             if(headA == headB) return headA;
-//             ListNode* temp = headA;
-//             while (temp->next != NULL) {
-//                 ListNode* temp2 = headB;
-//                 while(temp2->next != NULL) {
-//                     if(temp == temp2) return temp;
-//                     temp2 = temp2->next;
-//                 }
-//                 temp = temp->next;
-//             }
-//         } 
-//         return NULL;
-//     }
-// };
-
 class Solution {
 public:
     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
