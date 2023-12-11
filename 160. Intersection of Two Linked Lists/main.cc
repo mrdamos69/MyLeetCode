@@ -8,22 +8,36 @@
      void delList(ListNode *node);
 };
 
+// class Solution {
+// public:
+//     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
+//         if(headA != NULL || headB != NULL) {
+//             if(headA == headB) return headA;
+//             ListNode* temp = headA;
+//             while (temp->next != NULL) {
+//                 ListNode* temp2 = headB;
+//                 while(temp2->next != NULL) {
+//                     if(temp == temp2) return temp;
+//                     temp2 = temp2->next;
+//                 }
+//                 temp = temp->next;
+//             }
+//         } 
+//         return NULL;
+//     }
+// };
+
 class Solution {
 public:
     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
-        if(headA != NULL || headB != NULL) {
-            if(headA == headB) return headA;
+        if(!headA || !headB) return NULL;
             ListNode* temp = headA;
-            while (temp->next != NULL) {
-                ListNode* temp2 = headB;
-                while(temp2->next != NULL) {
-                    if(temp2 == temp->next) return temp2;
-                    if(temp2->next == temp) return temp;
-                    temp2 = temp2->next;
-                }
-                temp = temp->next;
+            ListNode* temp2 = headB;
+
+            while(temp != temp2) {
+                temp = temp == NULL ? headB : temp->next;
+                temp2 = temp2 == NULL ? headA : temp2->next;
             }
-        } 
-        return NULL;
+            return temp;
     }
 };
