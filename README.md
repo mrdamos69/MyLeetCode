@@ -8,9 +8,6 @@ This repository contains my solutions to various problems on [LeetCode](https://
 - [Directory Structure](#directory-structure)
 - [How to Use](#how-to-use)
 - [Unit Tests](#unit-tests)
-- [Contribution](#contribution)
-- [License](#license)
-- [Acknowledgments](#acknowledgments)
 
 ## Introduction
 
