@@ -11,25 +11,46 @@
 
  };
 
+// class Solution {
+// public:
+//     ListNode* removeElements(ListNode* head, int val) {
+//         if(head != nullptr) {
+//             ListNode* back = nullptr;
+//             while(head != nullptr && head->val == val) head = head->next;
+//             ListNode* temp = head;
+//             while(temp != nullptr) {
+//                 if(temp->val == val) {
+//                     // ListNode* del = temp;
+//                     if(back != nullptr) {
+//                         back->next = temp->next;
+//                     } else {
+//                         head = temp->next;
+//                     }
+//                     // del = nullptr;
+//                 }
+//                 back = temp;
+//                 temp = temp->next;
+//             }
+//         }
+//         return head;
+//     }
+// };
+
 class Solution {
 public:
     ListNode* removeElements(ListNode* head, int val) {
         if(head != nullptr) {
-            ListNode* back = nullptr;
+            ListNode* back = head;
             while(head != nullptr && head->val == val) head = head->next;
             ListNode* temp = head;
             while(temp != nullptr) {
                 if(temp->val == val) {
-                    // ListNode* del = temp;
-                    if(back != nullptr) {
-                        back->next = temp->next;
-                    } else {
-                        head = temp->next;
-                    }
-                    // del = nullptr;
+                    back->next = temp->next;
+                    temp = back->next;
+                } else {
+                    back = temp;
+                    temp = temp->next;
                 }
-                back = temp;
-                temp = temp->next;
             }
         }
         return head;
