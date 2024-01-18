@@ -44,7 +44,6 @@ TEST(Test_100, test_5) {
   TreeNode *root_1 = new TreeNode(10);
   root_1->left = new TreeNode(5);
   root_1->right = new TreeNode(15);
-
   TreeNode *root_2 = new TreeNode(10);
   root_2->left = new TreeNode(5);
   root_2->left->right = new TreeNode(15);
@@ -56,27 +55,23 @@ TEST(Test_100, test_6) {
   TreeNode *root_1 = new TreeNode(2);
   root_1->right = new TreeNode(4);
   root_1->left = new TreeNode(3);
-
   TreeNode *root_2 = new TreeNode(2);
   root_2->right = new TreeNode(4);
   ASSERT_EQ(test.isSameTree(root_1, root_2), false);
 }
 
-// TEST(Test_100, test_7) {
-//   Solution test;
-//   TreeNode *root_1 = new TreeNode(1);
-//   root_1->left = new TreeNode(2);
-//   root_1->right = new TreeNode(3);
-  
-
-//   TreeNode *root_2 = new TreeNode(1);
-//   root_2->left = new TreeNode(2);
-//   root_2->right = new TreeNode(3);
-//   root_2->right->left  = new TreeNode(4);
-//   root_2->right->right  = new TreeNode(5);
-
-//   ASSERT_EQ(test.isSameTree(root_1, root_2), false);
-// }
+TEST(Test_100, test_7) {
+  Solution test;
+  TreeNode *root_1 = new TreeNode(1);
+  root_1->left = new TreeNode(2);
+  root_1->right = new TreeNode(3);
+  TreeNode *root_2 = new TreeNode(1);
+  root_2->left = new TreeNode(2);
+  root_2->right = new TreeNode(3);
+  root_2->right->left  = new TreeNode(4);
+  root_2->right->right  = new TreeNode(5);
+  ASSERT_EQ(test.isSameTree(root_1, root_2), false);
+}
 
 
 TEST(Test_100, test_8) {
@@ -84,12 +79,9 @@ TEST(Test_100, test_8) {
   TreeNode *root_1 = new TreeNode(1);
   root_1->left = new TreeNode(2);
   root_1->right = new TreeNode(3);
-  
-
   TreeNode *root_2 = new TreeNode(1);
   root_2->left = new TreeNode(2);
   root_2->right = new TreeNode(9);
-
   ASSERT_EQ(test.isSameTree(root_1, root_2), false);
 }
 
